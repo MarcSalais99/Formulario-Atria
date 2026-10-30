@@ -1,2 +1,393 @@
 # Formulario-Atria
 Formulario para guardar datos de clintes
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFORMACIÓN PARA CRÉDITO ATRIA</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen py-6 px-4 sm:px-6 lg:px-8">
+
+    <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+        <!-- Cabecera Institucional -->
+        <div class="bg-gradient-to-r from-blue-900 via-indigo-900 to-slate-900 py-8 px-6 text-center text-white">
+            <h1 class="text-2xl sm:text-3xl font-bold tracking-wide uppercase">Información para Crédito Atria</h1>
+            <p class="text-blue-200 text-sm mt-2">Formulario de Solicitud y Recopilación de Datos</p>
+        </div>
+
+        <form id="atriaForm" class="p-6 sm:p-10 space-y-8">
+
+            <!-- SECCIÓN 1: Datos Personales -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">1</span>
+                    <span>Datos Personales</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nombre Completo *</label>
+                        <input type="text" id="nombre" required placeholder="Nombre(s) Apellido Paterno Apellido Materno"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">RFC *</label>
+                        <input type="text" id="rfc" required placeholder="Ej. AAAA000000XXX" maxlength="13"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl uppercase focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Nivel de Estudios *</label>
+                        <select id="nivelEstudios" required
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                            <option value="">Seleccione...</option>
+                            <option value="Primaria">Primaria</option>
+                            <option value="Secundaria">Secundaria</option>
+                            <option value="Preparatoria">Preparatoria / Bachillerato</option>
+                            <option value="Licenciatura">Licenciatura / Universitario</option>
+                            <option value="Posgrado">Posgrado / Maestría / Doctorado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 2: Domicilio Particular -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">2</span>
+                    <span>Domicilio Particular</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Calle y Número *</label>
+                        <input type="text" id="calleParticular" required placeholder="Calle, No. Exterior e Interior"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Colonia *</label>
+                        <input type="text" id="coloniaParticular" required placeholder="Colonia o Fraccionamiento"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Código Postal (C.P.) *</label>
+                        <input type="tel" id="cpParticular" required placeholder="Ej. 01000" maxlength="5" pattern="[0-9]{5}"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Ciudad / Municipio y Estado *</label>
+                        <input type="text" id="ciudadParticular" required placeholder="Ciudad, Estado"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 3: Estado Civil y Familia -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">3</span>
+                    <span>Estado Civil y Dependientes</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Estado Civil *</label>
+                        <select id="estadoCivil" required
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                            <option value="">Seleccione...</option>
+                            <option value="Soltero/a">Soltero/a</option>
+                            <option value="Casado/a">Casado/a</option>
+                            <option value="Divorciado/a">Divorciado/a</option>
+                            <option value="Viudo/a">Viudo/a</option>
+                            <option value="Unión Libre">Unión Libre</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Dependientes Económicos *</label>
+                        <input type="number" id="dependientes" required min="0" max="20" placeholder="Número de dependientes"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 4: Contacto y Empleo Actual -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">4</span>
+                    <span>Contacto y Empleo Actual</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Teléfono Móvil *</label>
+                        <input type="tel" id="telefono" required placeholder="10 dígitos" maxlength="10" pattern="[0-9]{10}"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Correo Electrónico *</label>
+                        <input type="email" id="correo" required placeholder="correo@ejemplo.com"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div class="sm:col-span-3">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Ocupación / Empleo Actual *</label>
+                        <input type="text" id="empleoActual" required placeholder="Actividad principal que desempeña"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 5: Datos de Empresa -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">5</span>
+                    <span>Datos de Empresa</span>
+                </h2>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Razón Social de la Empresa *</label>
+                        <input type="text" id="empresaRazonSocial" required placeholder="Nombre de la empresa o negocio"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Giro o Sector *</label>
+                        <input type="text" id="empresaGiro" required placeholder="Comercio, Servicios, etc."
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Número de Empleados *</label>
+                        <input type="number" id="empresaEmpleados" required min="1" placeholder="Ej. 15"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Calle y Número de Empresa *</label>
+                        <input type="text" id="empresaCalle" required placeholder="Calle y número comercial"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Colonia (Empresa) *</label>
+                        <input type="text" id="empresaColonia" required placeholder="Colonia"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">C.P. (Empresa) *</label>
+                        <input type="tel" id="empresaCp" required placeholder="Código Postal" maxlength="5" pattern="[0-9]{5}"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Ciudad (Empresa) *</label>
+                        <input type="text" id="empresaCiudad" required placeholder="Ciudad, Estado"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Puesto *</label>
+                        <input type="text" id="empresaPuesto" required placeholder="Cargo o Puesto"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Tiempo Trabajando *</label>
+                        <select id="empresaTiempo" required
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                            <option value="">Seleccione...</option>
+                            <option value="Menos de 1 año">Menos de 1 año</option>
+                            <option value="1 a 3 años">1 a 3 años</option>
+                            <option value="3 a 5 años">3 a 5 años</option>
+                            <option value="Más de 5 años">Más de 5 años</option>
+                        </select>
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-sm font-medium text-slate-700 mb-1">Cantidad de Ingresos Laborales ($ Mensuales) *</label>
+                        <input type="number" id="empresaIngresos" required min="0" step="0.01" placeholder="Ej. 15000.00"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base">
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 6: Referencias (3 completas) -->
+            <div class="space-y-6">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">6</span>
+                    <span>Referencias Personales / Laborales (3 requeridas)</span>
+                </h2>
+
+                <!-- Referencia 1 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="font-medium text-sm text-blue-800">Referencia 1</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <input type="text" id="ref1Nombre" required placeholder="Nombre completo de la referencia"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div>
+                            <input type="tel" id="ref1Telefono" required placeholder="Teléfono (10 dígitos)" maxlength="10" pattern="[0-9]{10}"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="text" id="ref1Parentesco" required placeholder="Parentesco o Relación (Ej. Amigo, Familiar, Compañero)"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referencia 2 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="font-medium text-sm text-blue-800">Referencia 2</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <input type="text" id="ref2Nombre" required placeholder="Nombre completo de la referencia"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div>
+                            <input type="tel" id="ref2Telefono" required placeholder="Teléfono (10 dígitos)" maxlength="10" pattern="[0-9]{10}"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="text" id="ref2Parentesco" required placeholder="Parentesco o Relación"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Referencia 3 -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="font-medium text-sm text-blue-800">Referencia 3</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <div class="sm:col-span-2">
+                            <input type="text" id="ref3Nombre" required placeholder="Nombre completo de la referencia"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div>
+                            <input type="tel" id="ref3Telefono" required placeholder="Teléfono (10 dígitos)" maxlength="10" pattern="[0-9]{10}"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                        <div class="sm:col-span-3">
+                            <input type="text" id="ref3Parentesco" required placeholder="Parentesco o Relación"
+                                class="w-full px-3 py-2 border border-slate-300 rounded-lg bg-white focus:ring-2 focus:ring-blue-500 outline-none text-sm">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN 7: Observaciones -->
+            <div class="space-y-4">
+                <h2 class="text-lg font-semibold text-blue-900 border-b pb-2 flex items-center space-x-2">
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2.5 py-1 rounded-full font-bold">7</span>
+                    <span>Observaciones</span>
+                </h2>
+                <div>
+                    <textarea id="observaciones" rows="3" placeholder="Comentarios adicionales o notas relevantes..."
+                        class="w-full px-4 py-3 border border-slate-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition text-base"></textarea>
+                </div>
+            </div>
+
+            <!-- Botón de Envío y Exportación a Excel -->
+            <div class="pt-6 border-t border-slate-200">
+                <button type="submit" 
+                    class="w-full bg-gradient-to-r from-blue-600 to-indigo-700 hover:from-blue-700 hover:to-indigo-800 text-white font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-xl transition duration-200 transform active:scale-[0.98] flex items-center justify-center space-x-2 text-base sm:text-lg">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                    </svg>
+                    <span>Enviar y Exportar a Excel (.csv)</span>
+                </button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Script de validación y exportación a Excel -->
+    <script>
+        document.getElementById('atriaForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Recopilar todos los valores de los campos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                rfc: document.getElementById('rfc').value,
+                nivelEstudios: document.getElementById('nivelEstudios').value,
+                calleParticular: document.getElementById('calleParticular').value,
+                coloniaParticular: document.getElementById('coloniaParticular').value,
+                cpParticular: document.getElementById('cpParticular').value,
+                ciudadParticular: document.getElementById('ciudadParticular').value,
+                estadoCivil: document.getElementById('estadoCivil').value,
+                dependientes: document.getElementById('dependientes').value,
+                telefono: document.getElementById('telefono').value,
+                correo: document.getElementById('correo').value,
+                empleoActual: document.getElementById('empleoActual').value,
+                empresaRazonSocial: document.getElementById('empresaRazonSocial').value,
+                empresaGiro: document.getElementById('empresaGiro').value,
+                empresaEmpleados: document.getElementById('empresaEmpleados').value,
+                empresaCalle: document.getElementById('empresaCalle').value,
+                empresaColonia: document.getElementById('empresaColonia').value,
+                empresaCp: document.getElementById('empresaCp').value,
+                empresaCiudad: document.getElementById('empresaCiudad').value,
+                empresaPuesto: document.getElementById('empresaPuesto').value,
+                empresaTiempo: document.getElementById('empresaTiempo').value,
+                empresaIngresos: document.getElementById('empresaIngresos').value,
+                ref1Nombre: document.getElementById('ref1Nombre').value,
+                ref1Telefono: document.getElementById('ref1Telefono').value,
+                ref1Parentesco: document.getElementById('ref1Parentesco').value,
+                ref2Nombre: document.getElementById('ref2Nombre').value,
+                ref2Telefono: document.getElementById('ref2Telefono').value,
+                ref2Parentesco: document.getElementById('ref2Parentesco').value,
+                ref3Nombre: document.getElementById('ref3Nombre').value,
+                ref3Telefono: document.getElementById('ref3Telefono').value,
+                ref3Parentesco: document.getElementById('ref3Parentesco').value,
+                observaciones: document.getElementById('observaciones').value
+            };
+
+            // Mapeo de cabeceras legibles para Excel
+            const headers = [
+                "Nombre Completo", "RFC", "Nivel de Estudios", "Calle Particular", "Colonia Particular", 
+                "C.P. Particular", "Ciudad Particular", "Estado Civil", "Dependientes Económicos", 
+                "Teléfono", "Correo Electrónico", "Empleo Actual", "Razón Social Empresa", "Giro/Sector Empresa", 
+                "No. Empleados Empresa", "Calle Empresa", "Colonia Empresa", "C.P. Empresa", "Ciudad Empresa", 
+                "Puesto Empresa", "Tiempo Trabajando", "Ingresos Laborales", "Ref 1 Nombre", "Ref 1 Teléfono", 
+                "Ref 1 Parentesco", "Ref 2 Nombre", "Ref 2 Teléfono", "Ref 2 Parentesco", "Ref 3 Nombre", 
+                "Ref 3 Teléfono", "Ref 3 Parentesco", "Observaciones"
+            ];
+
+            const values = [
+                formData.nombre, formData.rfc, formData.nivelEstudios, formData.calleParticular, formData.coloniaParticular,
+                formData.cpParticular, formData.ciudadParticular, formData.estadoCivil, formData.dependientes,
+                formData.telefono, formData.correo, formData.empleoActual, formData.empresaRazonSocial, formData.empresaGiro,
+                formData.empresaEmpleados, formData.empresaCalle, formData.empresaColonia, formData.empresaCp, formData.empresaCiudad,
+                formData.empresaPuesto, formData.empresaTiempo, formData.empresaIngresos, formData.ref1Nombre, formData.ref1Telefono,
+                formData.ref1Parentesco, formData.ref2Nombre, formData.ref2Telefono, formData.ref2Parentesco, formData.ref3Nombre,
+                formData.ref3Telefono, formData.ref3Parentesco, formData.observaciones
+            ];
+
+            // Construir archivo CSV con BOM UTF-8 para compatibilidad perfecta con Excel en español
+            let csvContent = "\ufeff";
+            csvContent += headers.map(h => `"${h}"`).join(",") + "\n";
+            csvContent += values.map(v => `"${(v || '').replace(/"/g, '""')}"`).join(",") + "\n";
+
+            // Crear enlace de descarga automático
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement("a");
+            link.setAttribute("href", url);
+            link.setAttribute("download", `Credito_Atria_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+
+            // Mensaje de éxito visual sin usar alert()
+            const successDiv = document.createElement('div');
+            successDiv.className = 'fixed bottom-5 right-5 bg-emerald-600 text-white px-6 py-3 rounded-xl shadow-2xl z-50 transition transform duration-300 flex items-center space-x-2';
+            successDiv.innerHTML = `
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                <span>¡Datos exportados a Excel exitosamente!</span>
+            `;
+            document.body.appendChild(successDiv);
+            setTimeout(() => {
+                successDiv.remove();
+            }, 4000);
+        });
+    </script>
+</body>
+</html>
